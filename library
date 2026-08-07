@@ -1,179 +1,118 @@
-class Book {
+// Library Management System demonstrating OOP concepts
 
+// Part A & B: Classes, Objects, Constructors, Encapsulation
+class Book {
     private int bookId;
     private String bookName;
     private String author;
     private double price;
-    private boolean issued;
 
+    // Default Constructor
     Book() {
         bookId = 0;
-        bookName = "Not Assigned";
-        author = "Not Assigned";
-        price = 0;
-        issued = false;
+        bookName = "Unknown";
+        author = "Unknown";
+        price = 0.0;
     }
 
-    Book(int bookId, String bookName, String author, double price) {
-        this.bookId = bookId;
-        this.bookName = bookName;
-        this.author = author;
-        this.price = price;
-        this.issued = false;
+    // Parameterized Constructor
+    Book(int id, String name, String auth, double pr) {
+        bookId = id;
+        bookName = name;
+        author = auth;
+        price = pr;
     }
 
-    public int getBookId() {
-        return bookId;
-    }
+    // Getters and Setters
+    public int getBookId() { return bookId; }
+    public void setBookId(int id) { bookId = id; }
 
-    public String getBookName() {
-        return bookName;
-    }
+    public String getBookName() { return bookName; }
+    public void setBookName(String name) { bookName = name; }
 
-    public String getAuthor() {
-        return author;
-    }
+    public String getAuthor() { return author; }
+    public void setAuthor(String auth) { author = auth; }
 
-    public double getPrice() {
-        return price;
-    }
+    public double getPrice() { return price; }
+    public void setPrice(double pr) { price = pr; }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void issueBook() {
-        if (!issued) {
-            issued = true;
-            System.out.println(bookName + " has been issued.");
-        } else {
-            System.out.println(bookName + " is already issued.");
-        }
-    }
-
-    public void returnBook() {
-        if (issued) {
-            issued = false;
-            System.out.println(bookName + " has been returned.");
-        } else {
-            System.out.println(bookName + " was not issued.");
-        }
-    }
-
-    void displayBook() {
-        System.out.println("Book ID : " + bookId);
-        System.out.println("Book Name : " + bookName);
-        System.out.println("Author : " + author);
-        System.out.println("Price : " + price);
-        System.out.println("Status : " + (issued ? "Issued" : "Available"));
+    public void displayDetails() {
+        System.out.println(bookId + " | " + bookName + " | " + author + " | " + price);
     }
 }
 
+// Part C: Inheritance
 class Person {
-    protected String name;
-    protected int age;
-
-    Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    void displayPerson() {
-        System.out.println("Name : " + name);
-        System.out.println("Age : " + age);
+    String name;
+    int age;
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
     }
 }
 
 class Student extends Person {
-    private int rollNumber;
-
-    Student(String name, int age, int rollNumber) {
-        super(name, age);
-        this.rollNumber = rollNumber;
-    }
-
-    void displayStudent() {
-        displayPerson();
-        System.out.println("Roll Number : " + rollNumber);
+    String course;
+    void display() {
+        super.display();
+        System.out.println("Course: " + course);
     }
 }
 
 class Faculty extends Person {
-    private String department;
-
-    Faculty(String name, int age, String department) {
-        super(name, age);
-        this.department = department;
-    }
-
-    void displayFaculty() {
-        displayPerson();
-        System.out.println("Department : " + department);
+    String department;
+    void display() {
+        super.display();
+        System.out.println("Department: " + department);
     }
 }
 
+// Part D: Polymorphism
 class AreaCalculator {
-
-    double calculateArea(double radius) {
+    double area(double radius) { // Circle
         return Math.PI * radius * radius;
     }
-
-    double calculateArea(double length, double breadth) {
+    double area(double length, double breadth) { // Rectangle
         return length * breadth;
     }
-
-    double calculateArea(double base, double height, boolean triangle) {
+    double area(double base, double height, boolean triangle) { // Triangle
         return 0.5 * base * height;
     }
 }
 
 class Vehicle {
     void display() {
-        System.out.println("This is a Vehicle");
+        System.out.println("This is a vehicle.");
     }
 }
 
 class Car extends Vehicle {
     @Override
     void display() {
-        System.out.println("This is a Car");
+        System.out.println("This is a Car.");
     }
 }
 
 class Bike extends Vehicle {
     @Override
     void display() {
-        System.out.println("This is a Bike");
+        System.out.println("This is a Bike.");
     }
 }
 
+// Part E: Abstraction and Interfaces
 abstract class Shape {
     abstract void draw();
 }
 
 class Circle extends Shape {
-    @Override
     void draw() {
-        System.out.println("Drawing Circle");
+        System.out.println("Drawing a Circle");
     }
 }
 
 class Rectangle extends Shape {
-    @Override
     void draw() {
-        System.out.println("Drawing Rectangle");
+        System.out.println("Drawing a Rectangle");
     }
 }
 
@@ -182,86 +121,53 @@ interface Printable {
 }
 
 class Report implements Printable {
-    @Override
     public void print() {
-        System.out.println("Printing Library Report");
+        System.out.println("Printing Report...");
     }
 }
 
-class FineCalculator {
-    double calculateFine(int lateDays) {
-        return lateDays * 5.0;
-    }
-}
-
+// Main Class
 public class LibraryManagementSystem {
-
     public static void main(String[] args) {
+        System.out.println("=== Part A & B: Book Details ===");
+        Book b1 = new Book();
+        Book b2 = new Book(101, "Java Programming", "James Gosling", 499.99);
+        b1.displayDetails();
+        b2.displayDetails();
 
-        Book book1 = new Book();
+        System.out.println("\n=== Part C: Inheritance ===");
+        Student s = new Student();
+        s.name = "Sufiyy";
+        s.age = 18;
+        s.course = "Computer Science";
+        s.display();
 
-        book1.setBookId(101);
-        book1.setBookName("Java Programming");
-        book1.setAuthor("James Gosling");
-        book1.setPrice(500);
+        Faculty f = new Faculty();
+        f.name = "Dr. Ram";
+        f.age = 55;
+        f.department = "science";
+        f.display();
 
-        System.out.println("BOOK 1 DETAILS");
-        book1.displayBook();
+        System.out.println("\n=== Part D: Polymorphism ===");
+        AreaCalculator ac = new AreaCalculator();
+        System.out.println("Circle Area: " + ac.area(5));
+        System.out.println("Rectangle Area: " + ac.area(4, 6));
+        System.out.println("Triangle Area: " + ac.area(3, 7, true));
 
-        System.out.println("\nIssuing Book...");
-        book1.issueBook();
-        book1.displayBook();
+        Vehicle v = new Vehicle();
+        Vehicle car = new Car();
+        Vehicle bike = new Bike();
+        v.display();
+        car.display();
+        bike.display();
 
-        System.out.println("\nReturning Book...");
-        book1.returnBook();
-        book1.displayBook();
+        System.out.println("\n=== Part E: Abstraction & Interfaces ===");
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+        circle.draw();
+        rectangle.draw();
 
-        Book book2 = new Book(102,
-                "Object Oriented Programming",
-                "Herbert Schildt",
-                650);
-
-        System.out.println("\nBOOK 2 DETAILS");
-        book2.displayBook();
-
-        Student student = new Student("Anu", 20, 25);
-
-        System.out.println("\nSTUDENT DETAILS");
-        student.displayStudent();
-
-        Faculty faculty = new Faculty("Ravi", 40, "Computer Science");
-
-        System.out.println("\nFACULTY DETAILS");
-        faculty.displayFaculty();
-
-        AreaCalculator calculator = new AreaCalculator();
-
-        System.out.println("\nArea of Circle : " + calculator.calculateArea(5));
-        System.out.println("Area of Rectangle : " + calculator.calculateArea(10, 5));
-        System.out.println("Area of Triangle : " + calculator.calculateArea(10, 6, true));
-
-        Vehicle vehicle;
-
-        vehicle = new Car();
-        vehicle.display();
-
-        vehicle = new Bike();
-        vehicle.display();
-
-        Shape shape;
-
-        shape = new Circle();
-        shape.draw();
-
-        shape = new Rectangle();
-        shape.draw();
-
-        Printable printable = new Report();
-        printable.print();
-
-        FineCalculator fine = new FineCalculator();
-        System.out.println("\nFine for 7 late days = Rs. " + fine.calculateFine(7));
-
-        System.out.println("\nLibrary Management System Completed Successfully.");
+        Report report = new Report();
+        report.print();
     }
 }
