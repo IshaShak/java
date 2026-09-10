@@ -1,0 +1,31 @@
+package polymorphism;
+interface MathOperation {
+    double calculate(double num1, double num2);
+}
+class Addition implements MathOperation {
+    public double calculate(double num1, double num2) {
+        return num1 + num2;
+    }
+}
+class Subtraction implements MathOperation {
+    public double calculate(double num1, double num2) {
+        return num1 - num2;
+    }
+}
+class Multiplication implements MathOperation {
+    public double calculate(double num1, double num2) {
+        return num1 * num2;
+    }
+}
+public class Demo {
+    public static void main(String[] args) {
+        double a = 12.0;
+        double b = 4.0;
+        MathOperation add = new Addition();
+        MathOperation sub = new Subtraction();
+        MathOperation mul = new Multiplication();
+        System.out.println("Addition (" + a + " + " + b + "): " + add.calculate(a, b));
+        System.out.println("Subtraction (" + a + " - " + b + "): " + sub.calculate(a, b));
+   System.out.println("Multiplication (" + a + " * " + b + "): " + mul.calculate(a, b));
+    }
+}
