@@ -1,3 +1,4 @@
+package basics;
 public class Method {
     public static multiplyNumbers(int a , int b){
     return a+b;
