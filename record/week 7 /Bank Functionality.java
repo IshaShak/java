@@ -1,4 +1,5 @@
-import java.util.Scanner;
+package recordprograms;
+        import java.util.Scanner;
 
 // Base class
 class RBI {
