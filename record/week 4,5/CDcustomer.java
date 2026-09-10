@@ -1,4 +1,5 @@
-import java.util.*;
+package recordprograms;
+        import java.util.*;
 
 // Customer class
 class Customer {
