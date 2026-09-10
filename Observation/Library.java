@@ -188,17 +188,17 @@ public class LibraryManagementSystem {
         System.out.println("\n=== Part C: Inheritance ===");
 
         Student s = new Student();
-        s.name = "Haarika";
-        s.age = 20;
-        s.course = "Computer Science";
+        s.name = "Sufiyy";
+        s.age = 18;
+        s.course = "Computer Science AI ML";
         s.display();
 
         System.out.println();
 
         Faculty f = new Faculty();
-        f.name = "Dr. Rao";
-        f.age = 45;
-        f.department = "Engineering";
+        f.name = "Dr. Ram";
+        f.age = 40;
+        f.department = "Engineering Graphics";
         f.display();
 
         // Part D
