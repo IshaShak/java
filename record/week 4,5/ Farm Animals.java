@@ -1,3 +1,5 @@
+package recordprograms;
+        import java.util.Scanner;
 // Farm Animals Java Application
 
 class Animal {
