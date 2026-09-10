@@ -1,10 +1,10 @@
-package csmd240;
+package abstractcl;
 
 abstract class A1 {
 	int x;
 
 	void Name() {
-		System.out.println("my name is chiranjeevi");
+		System.out.println("sufiyyy");
 	}
 
 	abstract void Age();
@@ -14,7 +14,7 @@ public class A2 extends A1 {
 
 	@Override
 	void Age() {
-		System.out.println("Age  is: 19 in A2");
+		System.out.println("Age  is: 18 in A2");
 
 	}
 
