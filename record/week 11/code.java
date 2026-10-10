@@ -1,3 +1,5 @@
+package recordprograms;
+
 import java.util.Scanner;
 
 class LengthNotSufficientException extends Exception {
